@@ -21,6 +21,7 @@ if ( $response->is_success() ) {
     print("\n");
     print("Status Code: " . $response->code());
     print("\n");
+    print ("Headers: ". $response->headers()->as_string);
 }
 else {
     print("ERROR Status Code: " . $response->status_line());
