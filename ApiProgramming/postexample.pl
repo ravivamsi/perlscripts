@@ -1,11 +1,16 @@
 #!/usr/bin/perl -w
 use strict;
-use warnings;  
+use warnings;
 
-my $uri = 'https://orbit.theplanet.com/Login.aspx?url=/Default.aspx';
-my $json = '{"username":"foo","password":"bar"}';
+use HTTP::Request;
+use LWP::UserAgent;
+
+$ENV{PERL_LWP_SSL_VERIFY_HOSTNAME}=0;
+
+my $uri = 'https://jsonplaceholder.typicode.com/posts';
+my $json = '{"title": "foo", "body": "bar", "userId": 1}';
 my $req = HTTP::Request->new( 'POST', $uri );
-$req->header( 'Content-Type' => 'application/json' );
+$req->header( 'Content-Type' => 'application/json; charset=UTF-8' );
 $req->content( $json );
 
 my $lwp = LWP::UserAgent->new;
@@ -13,6 +18,9 @@ my $response = $lwp->request( $req );
 
 if ( $response->is_success() ) {
     print("Body: " . $response->decoded_content);
+    print("\n");
+    print("Status Code: " . $response->code());
+    print("\n");
 }
 else {
     print("ERROR Status Code: " . $response->status_line());
