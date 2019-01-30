@@ -1,3 +1,8 @@
+#!/usr/bin/perl -w
+use strict;
+use warnings;
+
+
 use IO::Socket::INET;
 
 # auto-flush on socket
@@ -5,7 +10,7 @@ $| = 1;
 
 # creating a listening socket
 my $socket = new IO::Socket::INET (
-    LocalHost => '0.0.0.0',
+    LocalHost => '127.0.0.1',
     LocalPort => '7777',
     Proto => 'tcp',
     Listen => 5,

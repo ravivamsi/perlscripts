@@ -1,3 +1,6 @@
+#!/usr/bin/perl -w
+use strict;
+use warnings;
 use IO::Socket::INET;
 
 # auto-flush on socket
@@ -5,7 +8,7 @@ $| = 1;
 
 # create a connecting socket
 my $socket = new IO::Socket::INET (
-    PeerHost => '192.168.1.10',
+    PeerHost => '127.0.0.1',
     PeerPort => '7777',
     Proto => 'tcp',
 );
