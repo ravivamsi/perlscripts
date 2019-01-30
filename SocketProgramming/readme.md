@@ -6,4 +6,4 @@
 
 ## References
 
-[PERL Module](http://xmodulo.com/how-to-write-simple-tcp-server-and-client-in-perl.html)
+[Client - Server Model](http://xmodulo.com/how-to-write-simple-tcp-server-and-client-in-perl.html)
