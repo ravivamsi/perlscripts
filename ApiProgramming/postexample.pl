@@ -5,13 +5,18 @@ use warnings;
 use HTTP::Request;
 use LWP::UserAgent;
 
+# TO DO
+# Read requests from the request each transaction file line by line
+# Pass the req to the $json as request body and loop till we get all the responses.
+# Write to a file using - print($response->decoded_content) > something.out
+
 $ENV{PERL_LWP_SSL_VERIFY_HOSTNAME}=0;
 
 my $uri = 'https://jsonplaceholder.typicode.com/posts';
-my $json = '{"title": "foo", "body": "bar", "userId": 1}';
+my $reqbody = '{"title": "foo", "body": "bar", "userId": 1}';
 my $req = HTTP::Request->new( 'POST', $uri );
 $req->header( 'Content-Type' => 'application/json; charset=UTF-8' );
-$req->content( $json );
+$req->content( $reqbody );
 
 my $lwp = LWP::UserAgent->new;
 my $response = $lwp->request( $req );

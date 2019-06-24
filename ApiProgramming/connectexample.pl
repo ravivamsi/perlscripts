@@ -6,7 +6,7 @@ use LWP::UserAgent;
 
 $ENV{PERL_LWP_SSL_VERIFY_HOSTNAME}=0;
 
-my $uri = 'https://jsonplaceholder.typicode.com/posts/1';
+my $uri = 'https://jsonplaceholder.typicode.com';
 my $req = HTTP::Request->new( 'CONNECT', $uri );
 
 my $lwp = LWP::UserAgent->new;
