@@ -1,4 +1,4 @@
 # perlscripts
-Set of Perl Scripts
+Set of Simple Perl Scripts for Self Learning 
 
 ## Contributions
