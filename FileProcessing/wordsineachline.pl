@@ -23,7 +23,7 @@ use vars qw( $opt_F $opt_i );
 my $returncodeinputoptions;
 my $SUPPRESS_IGNORE;
 my $FILEPATH;
-my $numberoflines;
+my $wordcount;
 
 $returncodeinputoptions = getopts('F:i');
 
@@ -48,12 +48,12 @@ $SUPPRESS_IGNORE = 1;
 
 
 open(my $fh, '<:encoding(UTF-8)', $FILEPATH) or die "Could not open file '$FILEPATH' $!";
-$numberoflines++ while <$fh>;
+
 while(my $line = <$fh>){
     chomp $line;
     
     my @words = split / /, $line; 
-
+    $wordcount = $wordcount + scalar @words;
     foreach my $word(@words){
 
         # Manipulate Each Word Here
@@ -62,6 +62,6 @@ while(my $line = <$fh>){
 
 }
 
-print ("Total Lines :".$numberoflines."\n");
+print ("Total Words :".$wordcount."\n");
 
 close($fh);
